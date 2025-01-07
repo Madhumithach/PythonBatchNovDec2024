@@ -29,11 +29,14 @@ for product in products:
     price = product["price"]
     print(f"{name:<20}{qty:<10}{price:>10}")
 print(''.ljust(40, "-"))
-subtotal = sum(product["qty"] * product["price"] for product in products)
+sum=0
+for product in products:
+    sum= sum+(product["qty"]*product["price"])
+#subtotal = sum(product["qty"] * product["price"] for product in products)
 cash = 2000
-change = cash - subtotal
+change = cash - sum
 
-print(f"{'Sub Total:':<30}{subtotal:>10}")
+print(f"{'Sub Total:':<30}{sum:>10}")
 print(f"{'CASH:':<30}{cash:>10}")
 print(f"{'CHANGE:':<30}{change:>10}")
 
